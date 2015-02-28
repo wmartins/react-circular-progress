@@ -26,10 +26,13 @@ var files = {
     html: paths.src + '**/*.html'
 };
 
+gulp.task('default', ['clean', 'watch', 'bundle', 'copy']);
+
 gulp.task('bundle', function() {
     var bundler = browserify({
         entries: [paths.js + 'app.js'],
-        debug: true
+        debug: true,
+        transform: ['reactify']
     });
 
     var bundle = function() {
@@ -55,5 +58,3 @@ gulp.task('watch', function() {
     gulp.watch(files.js, ['bundle']);
     gulp.watch(files.html, ['copy']);
 });
-
-gulp.task('default', ['clean', 'watch', 'bundle', 'copy']);
