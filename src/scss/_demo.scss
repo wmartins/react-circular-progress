@@ -1,0 +1,17 @@
+html,
+body,
+#container {
+    height: 100%;
+}
+
+#container {
+    display: table;
+    width: 100%;
+}
+
+.Demo {
+    display: table-cell;
+
+    text-align: center;
+    vertical-align: middle;
+}

@@ -19,7 +19,7 @@ module.exports = React.createClass({
             height = this.props.r * 2,
             viewBox = "0 0 " + width + " " + height,
             dashArray = this.state.r * Math.PI * 2,
-            dashOffset = dashArray - dashArray * this.state.percentage / 100;
+            dashOffset = dashArray - dashArray * this.props.percentage / 100;
 
         return (
             <svg
@@ -48,7 +48,7 @@ module.exports = React.createClass({
                         x={this.props.r}
                         y={this.props.r}
                         dy=".4em"
-                        textAnchor="middle">{this.state.percentage + "%"}</text>
+                        textAnchor="middle">{this.props.percentage + "%"}</text>
             </svg>
         );
     }
