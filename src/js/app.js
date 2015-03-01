@@ -3,7 +3,8 @@ var React = require('react'),
 
 React.render(
     <CircularProgress
-        strokeWidth="4"
-        percentage="95" />,
+        strokeWidth="10"
+        r="80"
+        percentage="30" />,
     document.getElementById('container')
 );

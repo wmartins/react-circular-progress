@@ -23,16 +23,22 @@ module.exports = React.createClass({
 
         return (
             <svg
+                className="CircularProgress"
                 width={this.props.r * 2}
                 height={this.props.r * 2}
                 viewBox={viewBox}>
                 <circle
+                    className="CircularProgress-Bg"
                     cx={this.props.r}
                     cy={this.props.r}
                     r={this.state.r}
-                    stroke="red"
+                    strokeWidth={this.props.strokeWidth + "px"} />
+                <circle
+                    className="CircularProgress-Fg"
+                    cx={this.props.r}
+                    cy={this.props.r}
+                    r={this.state.r}
                     strokeWidth={this.props.strokeWidth + "px"}
-                    fill="transparent"
                     style={{
                         strokeDasharray: dashArray,
                         strokeDashoffset: dashOffset

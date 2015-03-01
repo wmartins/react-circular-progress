@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var clean = require('gulp-clean');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
+var sass = require('gulp-sass');
 var browserify = require('browserify');
 
 var paths = (function() {
@@ -26,7 +27,7 @@ var files = {
     html: paths.src + '**/*.html'
 };
 
-gulp.task('default', ['clean', 'watch', 'bundle', 'copy']);
+gulp.task('default', ['clean', 'watch', 'sass', 'bundle', 'copy']);
 
 gulp.task('bundle', function() {
     var bundler = browserify({
@@ -50,6 +51,10 @@ gulp.task('copy', function() {
     gulp.src(files.html).pipe(gulp.dest(paths.dst));
 });
 
+gulp.task('sass', function() {
+    gulp.src(files.scss).pipe(sass()).pipe(gulp.dest(paths.dst));
+});
+
 gulp.task('clean', function() {
     gulp.src(paths.dst).pipe(clean());
 });
@@ -57,4 +62,5 @@ gulp.task('clean', function() {
 gulp.task('watch', function() {
     gulp.watch(files.js, ['bundle']);
     gulp.watch(files.html, ['copy']);
+    gulp.watch(files.scss, ['sass']);
 });
