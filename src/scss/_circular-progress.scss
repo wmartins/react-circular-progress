@@ -1,12 +1,24 @@
+$bg-color: #ddd;
+$fg-color: #2ecc40;
+
 .CircularProgress-Bg,
 .CircularProgress-Fg {
     fill: none;
 }
 
 .CircularProgress-Bg {
-    stroke: #ddd;
+    stroke: $bg-color;
 }
 
 .CircularProgress-Fg {
-    stroke: #2ecc40;
+    transition: stroke-dashoffset .5s ease-in-out;
+    stroke: $fg-color;
+}
+
+.CircularProgress-Text {
+    font-family: sans-serif;
+    font-size: 30px;
+    fill: $fg-color;
+
+    transform: translate(0 50%);
 }

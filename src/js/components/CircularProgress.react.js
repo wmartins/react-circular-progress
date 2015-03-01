@@ -43,6 +43,12 @@ module.exports = React.createClass({
                         strokeDasharray: dashArray,
                         strokeDashoffset: dashOffset
                     }} />
+                    <text
+                        className="CircularProgress-Text"
+                        x={this.props.r}
+                        y={this.props.r}
+                        dy=".4em"
+                        textAnchor="middle">{this.state.percentage + "%"}</text>
             </svg>
         );
     }
