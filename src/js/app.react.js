@@ -1,18 +1,23 @@
-var React = require('react'),
-    ReactDOM = require('react-dom'),
-    CircularProgress = require('./components/CircularProgress.react');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import CircularProgress from './components/CircularProgress.react';
 
 require('../css/main.css');
 
-var InputDemo = React.createClass({
-    getInitialState: function() {
-        return {
+class InputDemo extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
             percentage: 0
         };
-    },
-    _onPercentageKeyUp: function() {
-        var domNode = this.refs.percentage.getDOMNode(),
-            value = parseInt(domNode.value, 10) || 0;
+
+        this.onPercentageKeyUp = this.onPercentageKeyUp.bind(this);
+    }
+
+    onPercentageKeyUp() {
+        var percentageDOMNode = this.refs.percentage,
+            value = parseInt(percentageDOMNode.value, 10) || 0;
 
         if(value < 0) {
             value = 0;
@@ -27,24 +32,25 @@ var InputDemo = React.createClass({
         this.setState({
             percentage: value
         });
-    },
-    render: function() {
+    }
+
+    render() {
         return (
             <div className="Demo">
                 <CircularProgress
                     strokeWidth="10"
-                    r="80"
+                    radius="80"
                     percentage={this.state.percentage}/>
                 <div>
                     <input
                         type="number"
                         ref="percentage"
-                        onKeyUp={this._onPercentageKeyUp}/>
+                        onChange={this.onPercentageKeyUp}/>
                 </div>
             </div>
         );
     }
-});
+}
 
 ReactDOM.render(
     <InputDemo/>,
