@@ -1,5 +1,5 @@
 # React Circular Progress
 
-This react component adds a simple circular progress bar.
+This is a simple circular progress bar, written using React and SVG.
 
 [DEMO](http://wmartins.github.io/react-circular-progress)
