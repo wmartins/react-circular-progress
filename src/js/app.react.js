@@ -1,5 +1,8 @@
 var React = require('react'),
+    ReactDOM = require('react-dom'),
     CircularProgress = require('./components/CircularProgress.react');
+
+require('../css/main.css');
 
 var InputDemo = React.createClass({
     getInitialState: function() {
@@ -43,7 +46,7 @@ var InputDemo = React.createClass({
     }
 });
 
-React.render(
+ReactDOM.render(
     <InputDemo/>,
     document.getElementById('container')
 );
