@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CircularProgress from './components/CircularProgress.react';
+import CircularProgress from './components/CircularProgress.jsx';
 
 require('../css/main.css');
 

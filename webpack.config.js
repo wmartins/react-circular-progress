@@ -2,17 +2,18 @@ require('babel-polyfill');
 
 module.exports = {
     context: __dirname + '/src',
+
     entry: {
-        js: './js/app.react.js',
+        js: './js/app.jsx.js',
         html: './index.html'
     },
 
     module: {
         loaders: [
             {
-                test: /\.react.js$/,
+                test: /\.js$/,
                 exclude: /node_modules/,
-                loader: 'babel-loader?presets[]=react,presets[]=es2015'
+                loader: 'babel-loader'
             },
             {
                 test: /\.css$/,
